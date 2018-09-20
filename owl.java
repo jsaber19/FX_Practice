@@ -1,6 +1,8 @@
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
@@ -95,6 +97,14 @@ public class owl extends Application {
 
         Circle leftshine = new Circle(298, 114, 5, Color.SNOW);
         root.getChildren().add(leftshine);
+
+        scene.setOnMouseMoved(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                scene.setFill(Color.rgb((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
+           }
+        });
 
         stage.setTitle("owl be your masterpiece ;)))");
         stage.setScene(scene);
